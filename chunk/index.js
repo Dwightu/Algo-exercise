@@ -12,8 +12,9 @@ function chunk(array, size) {
     const chunked = []
     let index = 0;
     while (index < array.length) {
-        array.slice(index, index + size)
+        chunked.push(array.slice(index, index + size))
     }
+    return chunked
 }
 
 module.exports = chunk;
