@@ -18,10 +18,8 @@ class Node {
     add(data) {
         this.children.push(new Node(data));
     }
-    remove(data) {
-        this.children = this.children.filter(i => {
-            return i.data !== data;
-        })
+    remove() {
+        return this.children.pop();
     }
 }
 
@@ -29,7 +27,7 @@ class Tree {
     constructor() {
         this.root = null;
     }
-    traverseBf(fn) {
+    traverseBF(fn) {
         const arr = [this.root];
         while (arr.length) {
             const node = arr.shift();
@@ -42,7 +40,7 @@ class Tree {
         while (arr.length) {
             const node = arr.shift();
             arr.unshift(...node.children);
-            fn(node)
+            fn(node);
         }
     }
 }

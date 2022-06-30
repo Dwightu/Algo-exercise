@@ -67,11 +67,4 @@ test('Can traverse DF', () => {
 
 
 
-const t = new Tree();
-const letters = ['a', 'b', 'c', 'd', 'e'];
-t.root = new Node('a');
-t.root.add('b');
-t.root.add('d');
-t.root.children[0].add('c');
-let x = t.printDF()
 

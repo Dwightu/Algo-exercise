@@ -5,13 +5,15 @@
 
 class Events {
   constructor() {
-    this.events = {};
+    this.events = {}
   }
+
   // Register an event handler
   on(eventName, callback) {
     if (this.events[eventName]) {
       this.events[eventName].push(callback);
-    } else {
+    }
+    else {
       this.events[eventName] = [callback];
     }
   }
@@ -29,9 +31,7 @@ class Events {
   // Remove all event handlers associated
   // with the given eventName
   off(eventName) {
-    if (this.events[eventName]) {
-      delete this.events[eventName];
-    }
+    delete this.events[eventName]
   }
 }
 

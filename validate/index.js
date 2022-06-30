@@ -6,10 +6,11 @@
 // the parent
 
 function validate(node, min = null, max = null) {
-    if (max !== null && node.data > max) {
+
+    if (max != null && max < node.data) {
         return false;
     }
-    if (min !== null && node.data < min) {
+    if (min != null && node.data < min) {
         return false;
     }
     if (node.left && !validate(node.left, min, node.data)) {
@@ -19,7 +20,6 @@ function validate(node, min = null, max = null) {
         return false;
     }
     return true;
-
 }
 
 module.exports = validate;
