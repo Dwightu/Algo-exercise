@@ -15,12 +15,38 @@ class Node {
         this.data = data;
         this.children = [];
     }
-    add = (data) => {
+    add(data) {
         this.children.push(new Node(data));
-
+    }
+    remove(data) {
+        this.children = this.children.filter(i => {
+            return i.data !== data;
+        })
     }
 }
 
-class Tree { }
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+    traverseBf(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            arr.push(...node.children);
+            fn(node);
+        }
+    }
+    traverseDF(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            arr.unshift(...node.children);
+            fn(node)
+        }
+    }
+}
+
+
 
 module.exports = { Tree, Node };
