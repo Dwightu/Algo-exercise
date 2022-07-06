@@ -1,7 +1,3 @@
-// --- Directions
-// Implement classes Node and Linked Lists
-// See 'directions' document
-
 class Node {
     constructor(data, next = null) {
         this.data = data;
@@ -115,13 +111,15 @@ class LinkedList {
         const node = new Node(data, previous.next);
         previous.next = node;
     }
+
     forEach(fn) {
-        let node = this.head;
-        while (node) {
-            fn(node);
-            node = node.next;
+        let cur = this.head;
+        while (cur) {
+            fn(cur);
+            cur = cur.next;
         }
     }
+
 }
 
 module.exports = { Node, LinkedList };

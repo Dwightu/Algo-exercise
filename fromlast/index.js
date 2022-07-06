@@ -12,14 +12,14 @@
 //    fromLast(list, 2).data // 'b'
 
 function fromLast(list, n) {
+    let cur = list.head;
     let slow = list.head;
-    let quick = list.head;
     while (n--) {
-        quick = quick.next;
+        cur = cur.next;
     }
-    while (quick.next) {
-        quick = quick.next;
+    while (cur.next) {
         slow = slow.next;
+        cur = cur.next;
     }
     return slow;
 }

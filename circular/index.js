@@ -13,12 +13,17 @@
 //   circular(l) // true
 
 function circular(list) {
+    if (!list.head) {
+        return false;
+    }
     let slow = list.head;
     let quick = list.head;
     while (quick.next && quick.next.next) {
-        slow = slow.next;
         quick = quick.next.next;
-        if (slow == quick) return true;
+        slow = slow.next;
+        if (slow === quick) {
+            return true;
+        }
     }
     return false;
 }
