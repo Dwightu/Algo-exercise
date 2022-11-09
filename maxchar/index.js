@@ -6,17 +6,17 @@
 // maxChar("apple 1231111") === "1"
 
 function maxChar(str) {
-    let result = ""
-    let maxNum = 0;
-    const strObj = {}
-    str.split('').forEach(i => {
-        strObj[i] = strObj[i] + 1 | 1;
-        if (strObj[i] > maxNum) {
-            maxNum = strObj[i];
-            result = i
+    let result="";
+    let maxNum=0;
+    let dic={};
+    str.split('').map((ea)=>{
+        dic[ea]=dic[ea]+1 || 1;
+        if(dic[ea]>maxNum){
+            result=ea;
+            maxNum=dic[ea];
         }
     })
-    return result;
+    return result
 }
 
 module.exports = maxChar;
